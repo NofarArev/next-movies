@@ -1,4 +1,4 @@
-# next-test
+# next-movies
 
 ## Installation
 1. Download the repository
