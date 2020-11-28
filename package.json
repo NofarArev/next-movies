@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node server/server.js"
+    "server": "node server/server.js",
+    "client": "cd next-movies-client && npm start",
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -19,8 +21,12 @@
   },
   "homepage": "https://github.com/next-insurance/next-test#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
   }
 }
