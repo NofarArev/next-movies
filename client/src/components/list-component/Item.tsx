@@ -1,7 +1,14 @@
 import React from 'react';
 import Parser from "html-react-parser";
+import {Movie} from "../../models/Movie";
 
-export function Item(props){
+export interface ItemProps {
+    openMoreDetails(movieId: number): void;
+
+    item: Movie;
+}
+
+export function Item(props: ItemProps) {
     return (
         <div className="movie" onClick={() => props.openMoreDetails(props.item.id)}>
             <div className="movie-image">

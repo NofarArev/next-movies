@@ -7,14 +7,21 @@ import Slide from "@material-ui/core/Slide";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Parser from "html-react-parser";
 import Button from "@material-ui/core/Button";
+import {Movie} from "../../models/Movie";
 
-export function MoreDetailsComponent(props) {
-    const Transition = React.forwardRef(function Transition(props, ref) {
+export interface MoreDetailsComponentProps {
+    movie: Movie;
+
+    handleBackClick(): void;
+}
+
+export function MoreDetailsComponent(props: MoreDetailsComponentProps) {
+    const Transition = React.forwardRef(function Transition(props: any, ref: any) {
         return <Slide direction="up" ref={ref} {...props} />;
     });
 
     return (
-        <Dialog fullScreen open={true} onClose={props.handleBackClick} TransitionComponent={Transition}>
+        <Dialog fullScreen open={true} onClose={props.handleBackClick}>
             <AppBar>
                 <Toolbar>
 
@@ -23,7 +30,7 @@ export function MoreDetailsComponent(props) {
                     </Button>
                 </Toolbar>
             </AppBar>
-            <div variant="h6" className="more-info-content">
+            <div className="more-info-content">
                 <span className="movie-details-content">
                     <img src={props.movie.largeimage} alt=""/>
                 </span>

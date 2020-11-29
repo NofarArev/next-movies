@@ -1,8 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {Item} from "./Item";
 import TablePagination from "@material-ui/core/TablePagination";
+import {Movie} from "../../models/Movie";
+import {Item} from "./Item";
 
-export function ListComponent(props) {
+export interface ListComponentProps {
+    items: Movie[];
+
+    openMoreDetails(movieId: number): void;
+}
+
+export function ListComponent(props: ListComponentProps) {
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
 
@@ -10,11 +17,11 @@ export function ListComponent(props) {
         setPage(0);
     }, [props.items]);
 
-    const handleChangePage = (event, newPage) => {
+    const handleChangePage = (event: any, newPage: number) => {
         setPage(newPage);
     };
 
-    const handleChangeRowsPerPage = (event) => {
+    const handleChangeRowsPerPage = (event: any) => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };

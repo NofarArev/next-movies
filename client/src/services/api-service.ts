@@ -7,6 +7,6 @@ export function getMovies(){
     return axios.get(serverUrl + "/movies");
 }
 
-export function getMovieById(movieId){
+export function getMovieById(movieId: number){
     return axios.get(serverUrl + "/movies/" + movieId);
 }
