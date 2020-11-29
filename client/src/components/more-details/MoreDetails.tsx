@@ -6,15 +6,14 @@ import Toolbar from "@material-ui/core/Toolbar";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Parser from "html-react-parser";
 import Button from "@material-ui/core/Button";
-import {Movie} from "../../models/Movie";
+import {Movie} from "../../types/Movie";
 
-export interface MoreDetailsComponentProps {
+export interface MoreDetailsProps {
     movie: Movie;
-
     handleBackClick(): void;
 }
 
-export function MoreDetailsComponent(props: MoreDetailsComponentProps) {
+export function MoreDetails(props: MoreDetailsProps) {
     return (
         <Dialog fullScreen open={true} onClose={props.handleBackClick}>
             <AppBar>

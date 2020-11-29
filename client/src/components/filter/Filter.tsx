@@ -9,36 +9,29 @@ import {KeyboardDatePicker} from "@material-ui/pickers";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 
-export interface FilterComponentProps {
+export interface FilterProps {
     freeText: string;
-
     setFreeText(value: string): void;
-
-    type: string
-
+    type: string;
     setType(value: string): void;
-
     fromRating: number | null;
-
-    setFromRating(value: number | null): void;
-
+    setFromRating(value: number): void;
     fromReleasedYear: Date | null;
-
     setFromReleasedYear(value: Date | null): void;
 }
 
-export function FilterComponent(props: FilterComponentProps) {
+export function Filter(props: FilterProps) {
     const types = ["Movie", "Series"];
 
     function handleClearFilters() {
         props.setFreeText('');
         props.setType('');
-        props.setFromRating(null);
+        props.setFromRating(0);
         props.setFromReleasedYear(null);
     }
 
     return (
-        <Grid container spacing={3}>
+        <Grid container spacing={5}>
             <Grid item xs={3}>
                 <TextField name="freeText"
                            fullWidth
@@ -105,7 +98,7 @@ export function FilterComponent(props: FilterComponentProps) {
                                     }}/>
             </Grid>
             <Grid item xs={2}>
-                <Button className="filter-btn" fullWidth variant="outlined" onClick={handleClearFilters}>
+                <Button className="filter-btn" fullWidth variant="contained" onClick={handleClearFilters}>
                     Clear filters
                 </Button>
             </Grid>

@@ -1,15 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import TablePagination from "@material-ui/core/TablePagination";
-import {Movie} from "../../models/Movie";
+import {Movie} from "../../types/Movie";
 import {Item} from "./Item";
 
-export interface ListComponentProps {
+export interface ListProps {
     items: Movie[];
-
     openMoreDetails(movieId: number): void;
 }
 
-export function ListComponent(props: ListComponentProps) {
+export function List(props: ListProps) {
     const [page, setPage] = useState(0);
     const [moviesPerPage, setMoviesPerPage] = useState(10);
 
@@ -28,13 +27,6 @@ export function ListComponent(props: ListComponentProps) {
 
     return (
         <>
-            <div className="movies">
-                {
-                    props.items.slice(page * moviesPerPage, page * moviesPerPage + moviesPerPage).map(item => {
-                        return (<Item item={item} openMoreDetails={props.openMoreDetails}/>)
-                    })
-                }
-            </div>
             <TablePagination
                 rowsPerPageOptions={[10, 50, 100]}
                 component="div"
@@ -45,6 +37,15 @@ export function ListComponent(props: ListComponentProps) {
                 onChangePage={handleChangePage}
                 onChangeRowsPerPage={handleChangeRowsPerPage}
             />
+            <div className="movies">
+                {
+                    props.items.length == 0 ? <h3>Movie list is empty</h3> :
+                        props.items.slice(page * moviesPerPage, page * moviesPerPage + moviesPerPage).map(item => {
+                            return (<Item key={item.id} item={item} openMoreDetails={props.openMoreDetails}/>)
+                        })
+                }
+            </div>
+
         </>
     )
 }
