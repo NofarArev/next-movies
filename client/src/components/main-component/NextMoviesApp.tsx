@@ -6,7 +6,6 @@ import logo from "../../assets/next-movies-logo.png";
 import {ListComponent} from "../list-component/ListComponent";
 import {Movie} from "../../models/Movie";
 import {getMovieById, getMovies} from "../../services/api-service";
-import {Criteria} from "../../models/Criteria";
 
 export function NextMoviesApp() {
     const [allMovies, setAllMovies] = useState<Movie[]>([]);
@@ -32,42 +31,37 @@ export function NextMoviesApp() {
     }, []);
 
     useEffect(() => {
-        handleFilter({
-            freeText: freeText,
-            fromReleasedYear: fromReleasedYear,
-            fromRating: fromRating,
-            type: type
-        })
+        handleFilter();
     }, [freeText, type, fromReleasedYear, fromRating]);
 
-    function handleFilter(criteria: Criteria) {
+    function handleFilter() {
         let allMoviesCopy = allMovies.slice();
 
-        if (criteria.freeText) {
+        if (freeText) {
             allMoviesCopy = allMoviesCopy.filter(movie => {
-                return movie.title.toLowerCase().includes(criteria.freeText.toLowerCase()) ||
-                    movie.synopsis.toLowerCase().includes(criteria.freeText.toLowerCase()) ||
-                    movie.rating.toString().includes(criteria.freeText) ||
-                    movie.type.toLowerCase().includes(criteria.freeText.toLowerCase()) ||
-                    movie.released.toString().toLowerCase().includes(criteria.freeText.toLowerCase())
+                return movie.title.toLowerCase().includes(freeText.toLowerCase()) ||
+                    movie.synopsis.toLowerCase().includes(freeText.toLowerCase()) ||
+                    movie.rating.toString().includes(freeText) ||
+                    movie.type.toLowerCase().includes(freeText.toLowerCase()) ||
+                    movie.released.toString().toLowerCase().includes(freeText.toLowerCase())
             });
         }
 
-        if (criteria.fromReleasedYear) {
+        if (fromReleasedYear) {
             allMoviesCopy = allMoviesCopy.filter(movie => {
-                return movie.released >= criteria.fromReleasedYear!.getFullYear()
+                return movie.released >= fromReleasedYear!.getFullYear()
             })
         }
 
-        if (criteria.fromRating) {
+        if (fromRating) {
             allMoviesCopy = allMoviesCopy.filter(movie => {
-                return movie.rating >= criteria.fromRating!
+                return movie.rating >= fromRating!
             })
         }
 
-        if (criteria.type) {
+        if (type) {
             allMoviesCopy = allMoviesCopy.filter(movie => {
-                return movie.type.toLowerCase() === criteria.type.toLowerCase()
+                return movie.type.toLowerCase() === type.toLowerCase()
             })
         }
 
@@ -90,8 +84,7 @@ export function NextMoviesApp() {
     return (
         <div className="main-comp">
             <img className="logo" src={logo} alt=""/>
-            <FilterComponent handleFilter={handleFilter}
-                             freeText={freeText}
+            <FilterComponent freeText={freeText}
                              setFreeText={setFreeText}
                              type={type}
                              setType={setType}
