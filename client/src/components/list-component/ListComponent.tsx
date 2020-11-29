@@ -11,7 +11,7 @@ export interface ListComponentProps {
 
 export function ListComponent(props: ListComponentProps) {
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [moviesPerPage, setMoviesPerPage] = useState(10);
 
     useEffect(() => {
         setPage(0);
@@ -22,7 +22,7 @@ export function ListComponent(props: ListComponentProps) {
     };
 
     const handleChangeRowsPerPage = (event: any) => {
-        setRowsPerPage(+event.target.value);
+        setMoviesPerPage(+event.target.value);
         setPage(0);
     };
 
@@ -30,7 +30,7 @@ export function ListComponent(props: ListComponentProps) {
         <>
             <div className="movies">
                 {
-                    props.items.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(item => {
+                    props.items.slice(page * moviesPerPage, page * moviesPerPage + moviesPerPage).map(item => {
                         return (<Item item={item} openMoreDetails={props.openMoreDetails}/>)
                     })
                 }
@@ -39,7 +39,7 @@ export function ListComponent(props: ListComponentProps) {
                 rowsPerPageOptions={[10, 50, 100]}
                 component="div"
                 count={props.items.length}
-                rowsPerPage={rowsPerPage}
+                rowsPerPage={moviesPerPage}
                 labelRowsPerPage="Movies per page"
                 page={page}
                 onChangePage={handleChangePage}

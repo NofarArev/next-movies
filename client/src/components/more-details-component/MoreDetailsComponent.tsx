@@ -19,7 +19,6 @@ export function MoreDetailsComponent(props: MoreDetailsComponentProps) {
         <Dialog fullScreen open={true} onClose={props.handleBackClick}>
             <AppBar>
                 <Toolbar>
-
                     <Button className="backBtn" color="inherit" onClick={props.handleBackClick} aria-label="close">
                         <ArrowBackIcon/> Back to All
                     </Button>
