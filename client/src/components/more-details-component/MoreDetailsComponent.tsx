@@ -3,7 +3,6 @@ import Typography from '@material-ui/core/Typography';
 import Dialog from "@material-ui/core/Dialog";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Slide from "@material-ui/core/Slide";
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Parser from "html-react-parser";
 import Button from "@material-ui/core/Button";
@@ -16,10 +15,6 @@ export interface MoreDetailsComponentProps {
 }
 
 export function MoreDetailsComponent(props: MoreDetailsComponentProps) {
-    const Transition = React.forwardRef(function Transition(props: any, ref: any) {
-        return <Slide direction="up" ref={ref} {...props} />;
-    });
-
     return (
         <Dialog fullScreen open={true} onClose={props.handleBackClick}>
             <AppBar>
