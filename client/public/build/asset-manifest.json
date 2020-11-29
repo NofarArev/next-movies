@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.08daba1d.chunk.css",
+    "main.js": "/static/js/main.e805e478.chunk.js",
+    "main.js.map": "/static/js/main.e805e478.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0375e318.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0375e318.js.map",
+    "static/css/2.c984a218.chunk.css": "/static/css/2.c984a218.chunk.css",
+    "static/js/2.c166b1fb.chunk.js": "/static/js/2.c166b1fb.chunk.js",
+    "static/js/2.c166b1fb.chunk.js.map": "/static/js/2.c166b1fb.chunk.js.map",
+    "static/js/3.aa7f9421.chunk.js": "/static/js/3.aa7f9421.chunk.js",
+    "static/js/3.aa7f9421.chunk.js.map": "/static/js/3.aa7f9421.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.c984a218.chunk.css.map": "/static/css/2.c984a218.chunk.css.map",
+    "static/css/main.08daba1d.chunk.css.map": "/static/css/main.08daba1d.chunk.css.map",
+    "static/js/2.c166b1fb.chunk.js.LICENSE.txt": "/static/js/2.c166b1fb.chunk.js.LICENSE.txt",
+    "static/media/next-movies-logo.efd3020d.png": "/static/media/next-movies-logo.efd3020d.png",
+    "static/media/index.css": "/static/media/roboto-vietnamese-400-normal.52cebac0.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0375e318.js",
+    "static/css/2.c984a218.chunk.css",
+    "static/js/2.c166b1fb.chunk.js",
+    "static/css/main.08daba1d.chunk.css",
+    "static/js/main.e805e478.chunk.js"
+  ]
+}
